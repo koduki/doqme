@@ -4,8 +4,6 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "slf4j-simple" % "1.6.2"
 )
 
-libraryDependencies += "org.scalatest" % "scalatest_2.10" % "1.9.1" % "test"
-
 libraryDependencies += "org.scala-tools.time" % "time_2.9.1" % "0.5"
 
 libraryDependencies += "org.scalaj" % "scalaj-time_2.10.0-M7" % "0.6"

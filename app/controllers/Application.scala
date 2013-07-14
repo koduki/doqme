@@ -1,9 +1,11 @@
 package controllers
 
-import play.api.mvc.Controller
-
+import play.api.mvc._
 object Application extends Controller {
 
-  def index = TODO
-
+  def index = Action {
+    Ok(views.html.index("Hello Play 2.0"))
+  }
+  
+  
 }
