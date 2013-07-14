@@ -1,6 +1,6 @@
 package cn.orz.pascal.doqme
 
-class Example {
+object Example {
 
     case class Item(val title:String, val link:String, val description:String, val content:String, val date:java.util.Date)
     def readFeed(url:String) = {
@@ -31,11 +31,10 @@ class Example {
         parse(tokens.toList)
     }
 
-    def score[T](x:Map[T, Int])(y:Map[T, Int]):Double = {
-        import java.lang.Math._
-        val dist = y.keys.foldLeft(0){(r, k) => r + pow((y(k) - (if(x.contains(k)){x(k)}else{0})), 2).toInt}
-        val max = y.keys.foldLeft(0){(r, k) => r + pow((y(k) - 0), 2).toInt}
-        dist / max.toDouble
+    def score[T](rate:Map[T, Int])(features:Map[T, Int]):Int = {
+        features.
+          map{x => if (rate.contains(x._1)){ x._2 * rate(x._1) } else { 0 } }.
+          foldLeft(0){(r, x) => r + x}
     }
 /*
     val url = "http://b.hatena.ne.jp/hotentry.rss"
